@@ -3,6 +3,8 @@ import Nav from '@components/Nav'
 import Provider from '@components/Provider'
 import '@styles/globals.css'
 import { usePathname } from 'next/navigation';
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/react'
 
 
 // export const metadata = {
@@ -47,6 +49,8 @@ const RootLayout = ({children}) => {
                 {children}
             </main>
             
+            <SpeedInsights />
+            <Analytics />
             </Provider>
         </body>
     </html>
