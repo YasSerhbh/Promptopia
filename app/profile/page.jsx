@@ -1,7 +1,7 @@
 'use client';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import Profile from '@components/Profile';
 
 
@@ -54,6 +54,7 @@ const MyProfile = () => {
 
 
   return (
+    <Suspense fallback={<div>Loading...</div>}>
         <Profile
             name='My'
             desc='Welcome to your profile page! Here you can view and edit your profile information. You can also view your posts and edit or delete them.'
@@ -61,6 +62,7 @@ const MyProfile = () => {
             handleEdit={handleEdit}
             handleDelete={handleDelete}
         />
+    </Suspense>
   )
 }
 
